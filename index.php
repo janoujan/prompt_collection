@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -18,5 +18,21 @@
       <textarea name="message"></textarea><br /><br />
       <button type="submit">Envoyer</button>
     </form>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formulaire de contact</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <?php include 'header.php'; ?>
+    <h1>Accueil</h1>
+    <h2>Binevenue dans cette collection de prompt</h2>
+    <p>Projet etudiant à but pédagogique</p>
   </body>
 </html>

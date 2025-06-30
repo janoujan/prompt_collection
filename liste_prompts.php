@@ -20,6 +20,7 @@ $result = mysqli_query($conn, $sql);
 <head>
   <meta charset="UTF-8">
   <title>Liste des Prompts</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>Liste des Prompts</h1>

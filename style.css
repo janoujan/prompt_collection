@@ -7,22 +7,26 @@ body {
   padding: 1.5rem;
   line-height: 1.6;
 }
+
 h1,
 h2 {
   color: #0066cc;
   margin-bottom: 1rem;
 }
+
 form {
   background-color: #fff;
   padding: 1.5rem;
   border: 1px solid #ddd;
   border-radius: 8px;
 }
+
 label {
   display: block;
   margin-top: 1rem;
   font-weight: bold;
 }
+
 input[type="text"],
 input[type="email"],
 textarea {
@@ -33,10 +37,12 @@ textarea {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 textarea {
   resize: vertical;
   height: 100px;
 }
+
 button {
   margin-top: 1.5rem;
   padding: 0.7rem 1.5rem;
@@ -46,22 +52,66 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
+
 button:hover {
   background-color: #004a99;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 2rem;
   background-color: #fff;
 }
+
 th,
 td {
   padding: 0.8rem;
   border: 1px solid #ddd;
   text-align: left;
 }
+
 th {
   background-color: #e6f0ff;
   color: #003366;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f0f0f0;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+nav li {
+  display: inline;
+  transition: transform 0.3s ease;
+}
+
+nav li:hover {
+  transform: scale(1.1);
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #ddd;
+  border-radius: 5px;
+  transform: scale(1.1);
+}
+
+nav a.active {
+  font-weight: bold;
+  background-color: #7384c9;
+  color: rgb(225, 225, 231);
 }
