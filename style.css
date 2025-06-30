@@ -168,3 +168,24 @@ footer a:hover {
 .pagination a:hover:not(.active) {
   background-color: #ddd;
 }
+
+/* Styles responsives */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  nav li {
+    display: block;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
