@@ -10,7 +10,7 @@ $sql = "
   FROM prompts p
   JOIN types t ON p.id_type = t.id
   LEFT JOIN outils o ON p.id_outil = o.id
-  ORDER BY p.date_creation DESC
+  ORDER BY p.favori DESC, p.date_creation DESC
 ";
 $result = mysqli_query($conn, $sql);
 ?>
@@ -55,6 +55,7 @@ $result = mysqli_query($conn, $sql);
     </tbody>
   </table>
   <p><a href="ajout_prompt.php">Ajouter un prompt</a></p>
+  <?php include 'footer.php'; ?>
 </body>
 </html>
 <?php mysqli_close($conn); ?>

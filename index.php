@@ -32,7 +32,9 @@
   <body>
     <?php include 'header.php'; ?>
     <h1>Accueil</h1>
-    <h2>Binevenue dans cette collection de prompt</h2>
+    <h2>Bienvenue dans cette collection de prompt</h2>
+    <h3>Ajoutez des prompts &#128293; &#128640; &#128165;</h3>
     <p>Projet etudiant à but pédagogique</p>
+    <?php include 'footer.php'; ?>
   </body>
 </html>

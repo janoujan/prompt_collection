@@ -15,9 +15,9 @@ $outils = mysqli_query($conn, "SELECT id, nom FROM outils");
     <h1>Ajouter un nouveau prompt</h1>
     <form action="traitement_prompt.php" method="POST">
       <label for="titre">Titre :</label><br />
-      <input type="text" name="titre" required /><br /><br />
+      <input type="text" name="titre" required maxlength="100" /><br /><br />
       <label for="contenu">Contenu :</label><br />
-      <textarea name="contenu" rows="6" required></textarea><br /><br />
+      <textarea name="contenu" rows="6" required maxlength="1000"></textarea><br /><br />
       <label for="type">Type :</label><br />
       <select name="id_type" required>
         <?php while ($type = mysqli_fetch_assoc($types)): ?>
@@ -36,11 +36,12 @@ $outils = mysqli_query($conn, "SELECT id, nom FROM outils");
         <?php endwhile; ?></select
       ><br /><br />
       <label for="observation">Observation (facultatif) :</label><br />
-      <textarea name="observation" rows="3"></textarea><br /><br />
+      <textarea name="observation" rows="3" maxlength="300"></textarea><br /><br />
       <label>
         <input type="checkbox" name="favori" value="1" /> Marquer comme favori </label
       ><br /><br />
       <button type="submit">Enregistrer le prompt</button>
     </form>
+    <?php include 'footer.php'; ?>
   </body>
 </html>

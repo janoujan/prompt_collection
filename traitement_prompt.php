@@ -19,7 +19,7 @@ if ($titre && $contenu && $id_type) {
   );
   mysqli_stmt_bind_param($stmt, "ssiisi", $titre, $contenu, $id_type, $id_outil, $observation, $favori);
   if (mysqli_stmt_execute($stmt)) {
-    echo "✅ Prompt enregistré.<br>";
+    echo '<div class="confirmation">✅ Le prompt a bien été enregistré.</div>';
     echo '<a href="ajout_prompt.php">Ajouter un autre</a> | ';
     echo '<a href="liste_prompts.php">Voir les prompts</a>';
   } else {
