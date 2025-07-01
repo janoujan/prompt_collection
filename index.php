@@ -14,8 +14,9 @@ require_once __DIR__ . '/includes/db_connect.php';
   <body>
     <?php include 'includes/header.php'; ?>
     <h1>Accueil</h1>
-    <h2>Bienvenue dans cette collection de prompt</h2>
-    <h3>Ajoutez des prompts &#128293; &#128640; &#128165;</h3>
+    <h2>Bienvenue dans ta collection de prompt collaborative</h2>
+    <h3>Invites tes potes à ajoutez et partager des prompts &#128293; &#128640; &#128165;</h3>
+    <h4>Modifie supprime et mets en favoris tes prompts</h4>
     <p>Projet etudiant à but pédagogique</p>
     <?php include 'includes/footer.php'; ?>
   </body>

@@ -1,6 +1,7 @@
 <?php
 // Détection de l'environnement (local ou InfinityFree)
 require_once __DIR__ . '/../includes/db_connect.php';
+require_once __DIR__ .'/../includes/constants.php';
 
 // Récupération de l'ID du prompt à modifier
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -27,14 +28,14 @@ if ($id > 0) {
 <head>
     <meta charset="UTF-8">
     <title>Modifier un prompt</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
-    <?php include 'header.php'; ?>
+    <?php include '../includes/header.php'; ?>
     <h1>Modifier un prompt</h1>
     <?php if ($prompt): ?>
-        <form action="traitement_edit_prompt.php" method="POST">
+        <form action="../helper/traitement_edit_prompt.php" method="POST">
             <input type="hidden" name="id" value="<?= $prompt['id'] ?>">
             <label for="titre">Titre :</label><br>
             <input type="text" id="titre" name="titre" maxlength="100" value="<?= htmlspecialchars($prompt['titre']) ?>" required><br><br>

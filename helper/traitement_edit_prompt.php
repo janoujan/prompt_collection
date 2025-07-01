@@ -1,10 +1,8 @@
 <?php
 // Détection de l'environnement (local ou InfinityFree)
-if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
-    include 'config_local.php';
-} else {
-    include 'config_infinity.php';
-}
+require_once __DIR__ . '/../includes/db_connect.php';
+require_once __DIR__ . '/../includes/constants.php';
+
 
 // Sécurisation et récupération des données du formulaire
 $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
@@ -25,7 +23,7 @@ if ($id > 0 && $titre && $contenu && $id_type) {
     // Exécution
     if (mysqli_stmt_execute($stmt)) {
         echo "Le prompt a bien été mis à jour.<br>";
-        echo '<a href="liste_prompts.php">Retour à la liste des prompts</a>';
+        echo '<a href="../prompt/liste_prompts.php">Retour à la liste des prompts</a>';
     } else {
         echo "Erreur lors de la mise à jour : " . mysqli_stmt_error($stmt);
     }

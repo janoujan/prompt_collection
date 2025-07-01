@@ -1,6 +1,7 @@
 <?php
 // Détection de l'environnement (local ou InfinityFree)
 require_once __DIR__ . '/../includes/db_connect.php';
+require_once __DIR__ .'/../includes/constants.php';
 
 // Récupération des contacts
 $sql = "SELECT * FROM contacts ORDER BY date_creation DESC";
@@ -12,12 +13,12 @@ $result = mysqli_query($conn, $sql);
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Liste des Contacts</title>
+    <title>Liste des Utilisateurs</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
     <?php include '../includes/header.php'; ?>
-    <h1>Liste des Contacts</h1>
+    <h1>Liste des Utilisateurs</h1>
     <table>
         <thead>
             <tr>
@@ -41,12 +42,12 @@ $result = mysqli_query($conn, $sql);
                 <?php endwhile; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="5">Aucun contact enregistré.</td>
+                    <td colspan="5">Aucun utilisateur enregistré.</td>
                 </tr>
             <?php endif; ?>
         </tbody>
     </table>
-    <p><a href="ajout_contact.php">Ajouter un nouveau contact</a></p>
+    <p><a href="ajout_contact.php">Ajouter un nouveau utilisateur</a></p>
 <?php include '../includes/footer.php'; ?>
 </body>
 </html>

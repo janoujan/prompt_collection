@@ -1,10 +1,7 @@
 <?php
 // Détection de l'environnement (local ou InfinityFree)
-if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
-    include 'config_local.php';
-} else {
-    include 'config_infinity.php';
-}
+require_once __DIR__ . '/../includes/db_connect.php';
+require_once __DIR__ .'/../includes/constants.php';
 
 // Sécurisation et récupération des données du formulaire
 $prenom = htmlspecialchars(trim($_POST['prenom'] ?? ''));
@@ -21,8 +18,8 @@ if ($prenom && $nom && $email) {
     // Exécution
     if (mysqli_stmt_execute($stmt)) {
         echo "Le contact a bien été enregistré.<br>";
-        echo '<a href="ajout_contact.php">Ajouter un autre contact</a> | ';
-        echo '<a href="contacts.php">Voir les contacts</a>';
+        echo '<a href="../pages/ajout_contact.php">Ajouter un autre contact</a> | ';
+        echo '<a href="../pages/contact.php">Voir les contacts</a>';
     } else {
         echo "Erreur à l'enregistrement : " . mysqli_stmt_error($stmt);
     }

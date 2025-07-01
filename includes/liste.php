@@ -1,6 +1,8 @@
 <?php
 // Détection de l’environnement
 require_once __DIR__ . '/../includes/db_connect.php';
+require_once __DIR__ . '/../includes/constants.php';
+
 
  // Requête pour récupérer les contacts
  $sql = "SELECT * FROM contacts ORDER BY date_creation DESC";
@@ -8,7 +10,7 @@ require_once __DIR__ . '/../includes/db_connect.php';
  // Début de la page HTML
  echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">';
  echo '<title>Liste des contacts</title>';
- echo '<link rel="stylesheet" href="style.css">';
+ echo '<link rel="stylesheet" href="../assets/css/style.css">';
  echo '</head><body>';
  echo '<h1>Liste des contacts enregistrés</h1>';
  // Affichage du tableau si des résultats existent
