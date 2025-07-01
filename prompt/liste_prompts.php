@@ -87,7 +87,7 @@ $auteurs_result = mysqli_query($conn, $auteurs_sql);
                 <?php while ($row = mysqli_fetch_assoc($result)): ?>
                     <tr>
                         <td><?= htmlspecialchars($row['titre']) ?></td>
-                        <td><?= nl2br($row['contenu']) ?></td>
+                        <td><?= htmlspecialchars($row['contenu']) ?></td>
                         <td><?= htmlspecialchars($row['type_nom']) ?></td>
                         <td><?= htmlspecialchars($row['outil_nom'] ?? '-') ?></td>
                         <td><?= htmlspecialchars($row['observation'] ?? '') ?></td>
