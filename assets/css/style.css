@@ -46,7 +46,7 @@ textarea {
 button {
   margin-top: 1.5rem;
   padding: 0.7rem 1.5rem;
-  background-color: #0066cc;
+  background-color: #3b4d61;
   color: white;
   border: none;
   border-radius: 4px;
@@ -54,7 +54,7 @@ button {
 }
 
 button:hover {
-  background-color: #004a99;
+  background-color: #6b7b8c;
 }
 
 table {
@@ -67,13 +67,23 @@ table {
 th,
 td {
   padding: 0.8rem;
-  border: 1px solid #ddd;
+  border: 1px solid #92b1d2;
+  border-radius: 5px;
   text-align: left;
 }
 
 th {
-  background-color: #e6f0ff;
-  color: #003366;
+  background-color: #6b7b8c;
+  color: #011e3b;
+}
+
+.logo {
+  border-radius: 5px;
+}
+
+.header {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 nav ul {
@@ -82,7 +92,7 @@ nav ul {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: #f0f0f0;
+  background: #6b7b8c;
   border-radius: 8px;
   margin-bottom: 1rem;
 }
@@ -105,14 +115,14 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #ddd;
+  background-color: #92b1d2;
   border-radius: 5px;
   transform: scale(1.1);
 }
 
 nav a.active {
   font-weight: bold;
-  background-color: #7384c9;
+  background-color: #204164;
   color: rgb(225, 225, 231);
 }
 
@@ -123,7 +133,7 @@ img {
 footer {
   text-align: center;
   font-size: 0.9em;
-  color: #666;
+  color: #2a2828;
   margin-top: 2rem;
 }
 footer a {
@@ -135,9 +145,9 @@ footer a:hover {
 }
 
 .confirmation {
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
-  color: #155724;
+  background-color: #6b7b8c;
+  border: 1px solid #92b1d2;
+  color: #3b4d61;
   padding: 1rem;
   margin: 1rem 0;
   border-radius: 5px;
@@ -153,16 +163,16 @@ footer a:hover {
   display: inline-block;
   padding: 8px 16px;
   margin: 0 4px;
-  border: 1px solid #ddd;
+  border: 1px solid #92b1d2;
   border-radius: 4px;
   text-decoration: none;
-  color: #333;
+  color: #3b4d61;
 }
 
 .pagination a.active {
-  background-color: #0066cc;
+  background-color: #6b7b8c;
   color: white;
-  border: 1px solid #0066cc;
+  border: 1px solid #ef9d1f;
 }
 
 .pagination a:hover:not(.active) {
