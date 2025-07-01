@@ -17,15 +17,15 @@ if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
 <body>
     <?php include 'header.php'; ?>
     <h1>Ajouter un nouveau contact</h1>
-    <form action="traitement_contact.php" method="POST">
+   <form action="traitement_contact.php" method="POST">
         <label for="prenom">Prénom :</label><br>
-        <input type="text" id="prenom" name="prenom" required><br><br>
+        <input type="text" id="prenom" name="prenom" maxlength="50" required><br><br>
         <label for="nom">Nom :</label><br>
-        <input type="text" id="nom" name="nom" required><br><br>
+        <input type="text" id="nom" name="nom" maxlength="50" required><br><br>
         <label for="email">Email :</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <input type="email" id="email" name="email" maxlength="100" required><br><br>
         <label for="message">Message :</label><br>
-        <textarea id="message" name="message" rows="6"></textarea><br><br>
+        <textarea id="message" name="message" maxlength="1000" rows="6"></textarea><br><br>
         <button type="submit">Enregistrer le contact</button>
     </form>
 </body>

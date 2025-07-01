@@ -9,6 +9,9 @@ if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
 // Récupération du mot-clé de recherche
 $keyword = isset($_GET['keyword']) ? trim($_GET['keyword']) : '';
 
+// Récupération de l'auteur
+$auteur = isset($_GET['auteur']) ? trim($_GET['auteur']) : '';
+
 // Nombre de prompts par page
 $prompts_per_page = 5;
 
@@ -39,6 +42,10 @@ if (!empty($keyword)) {
 
 $sql .= " ORDER BY p.date_creation DESC LIMIT $offset, $prompts_per_page";
 $result = mysqli_query($conn, $sql);
+
+// Requête SQL pour récupérer les auteurs distincts
+$auteurs_sql = "SELECT DISTINCT auteur FROM prompts ORDER BY auteur";
+$auteurs_result = mysqli_query($conn, $auteurs_sql);
 ?>
 
 <!DOCTYPE html>
@@ -48,13 +55,21 @@ $result = mysqli_query($conn, $sql);
     <title>Liste des Prompts</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <?php include 'header.php'; ?>
     <h1>Liste des Prompts enregistrés</h1>
     <form method="GET" action="liste_prompts.php">
         <label for="keyword">Rechercher :</label>
         <input type="text" id="keyword" name="keyword" value="<?= htmlspecialchars($keyword) ?>">
-        <button type="submit">Rechercher</button>
+        <label for="auteur">Auteur :</label>
+        <select id="auteur" name="auteur">
+            <option value="">Tous les auteurs</option>
+            <?php while ($auteur_row = mysqli_fetch_assoc($auteurs_result)): ?>
+                <option value="<?= htmlspecialchars($auteur_row['auteur']) ?>" <?= $auteur_row['auteur'] == $auteur ? 'selected' : '' ?>><?= htmlspecialchars($auteur_row['auteur']) ?></option>
+            <?php endwhile; ?>
+        </select>
+        <button type="submit">Filtrer</button>
     </form>
     <table>
         <thead>
@@ -65,6 +80,7 @@ $result = mysqli_query($conn, $sql);
                 <th>Outil</th>
                 <th>Observation</th>
                 <th>Favori</th>
+                <th>Auteur</th>
                 <th>Date</th>
                 <th>Actions</th>
             </tr>
@@ -79,6 +95,7 @@ $result = mysqli_query($conn, $sql);
                         <td><?= htmlspecialchars($row['outil_nom'] ?? '-') ?></td>
                         <td><?= htmlspecialchars($row['observation'] ?? '') ?></td>
                         <td><?= $row['favori'] ? '✓' : '' ?></td>
+                        <td><?= htmlspecialchars($row['auteur']) ?></td>
                         <td><?= $row['date_creation'] ?></td>
                         <td>
                             <a href="edit_prompt.php?id=<?= $row['id'] ?>">Modifier</a> |
@@ -88,7 +105,7 @@ $result = mysqli_query($conn, $sql);
                 <?php endwhile; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="8">Aucun prompt enregistré.</td>
+                    <td colspan="9">Aucun prompt enregistré.</td>
                 </tr>
             <?php endif; ?>
         </tbody>
@@ -97,21 +114,20 @@ $result = mysqli_query($conn, $sql);
     <!-- Pagination -->
     <div class="pagination">
         <?php if ($page > 1): ?>
-            <a href="liste_prompts.php?page=<?= $page - 1 ?>&keyword=<?= urlencode($keyword) ?>">Précédent</a>
+            <a href="liste_prompts.php?page=<?= $page - 1 ?>&keyword=<?= urlencode($keyword) ?>&auteur=<?= urlencode($auteur) ?>">Précédent</a>
         <?php endif; ?>
 
         <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-            <a href="liste_prompts.php?page=<?= $i ?>&keyword=<?= urlencode($keyword) ?>" <?= $i == $page ? 'class="active"' : '' ?>><?= $i ?></a>
+            <a href="liste_prompts.php?page=<?= $i ?>&keyword=<?= urlencode($keyword) ?>&auteur=<?= urlencode($auteur) ?>" <?= $i == $page ? 'class="active"' : '' ?>><?= $i ?></a>
         <?php endfor; ?>
 
         <?php if ($page < $total_pages): ?>
-            <a href="liste_prompts.php?page=<?= $page + 1 ?>&keyword=<?= urlencode($keyword) ?>">Suivant</a>
+            <a href="liste_prompts.php?page=<?= $page + 1 ?>&keyword=<?= urlencode($keyword) ?>&auteur=<?= urlencode($auteur) ?>">Suivant</a>
         <?php endif; ?>
     </div>
 
     <p><a href="ajout_prompt.php">Ajouter un nouveau prompt</a></p>
-  <?php include 'footer.php'; ?>
-  </body>
+</body>
 </html>
 <?php
 mysqli_close($conn);

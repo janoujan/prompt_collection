@@ -33,6 +33,7 @@ if ($id > 0) {
     <title>Modifier un prompt</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <?php include 'header.php'; ?>
     <h1>Modifier un prompt</h1>
@@ -40,9 +41,9 @@ if ($id > 0) {
         <form action="traitement_edit_prompt.php" method="POST">
             <input type="hidden" name="id" value="<?= $prompt['id'] ?>">
             <label for="titre">Titre :</label><br>
-            <input type="text" id="titre" name="titre" value="<?= htmlspecialchars($prompt['titre']) ?>" required><br><br>
+            <input type="text" id="titre" name="titre" maxlength="100" value="<?= htmlspecialchars($prompt['titre']) ?>" required><br><br>
             <label for="contenu">Contenu :</label><br>
-            <textarea id="contenu" name="contenu" rows="6" required><?= htmlspecialchars($prompt['contenu']) ?></textarea><br><br>
+            <textarea id="contenu" name="contenu" maxlength="1000" rows="6" required><?= htmlspecialchars($prompt['contenu']) ?></textarea><br><br>
             <label for="type">Type :</label><br>
             <select id="type" name="id_type" required>
                 <?php while ($type = mysqli_fetch_assoc($types)): ?>
@@ -57,7 +58,9 @@ if ($id > 0) {
                 <?php endwhile; ?>
             </select><br><br>
             <label for="observation">Observation (facultatif) :</label><br>
-            <textarea id="observation" name="observation" rows="3"><?= htmlspecialchars($prompt['observation']) ?></textarea><br><br>
+            <textarea id="observation" name="observation" maxlength="500" rows="3"><?= htmlspecialchars($prompt['observation']) ?></textarea><br><br>
+            <label for="auteur">Auteur :</label><br>
+            <input type="text" id="auteur" name="auteur" maxlength="50" value="<?= htmlspecialchars($prompt['auteur']) ?>"><br><br>
             <label>
                 <input type="checkbox" name="favori" value="1" <?= $prompt['favori'] ? 'checked' : '' ?>> Marquer comme favori
             </label><br><br>
