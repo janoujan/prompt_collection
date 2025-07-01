@@ -1,4 +1,10 @@
-<?php include 'header.php'; ?>
+<?php 
+// Détection de l'environnement (local ou InfinityFree)
+require_once __DIR__ . '/../includes/db_connect.php';
+//affichage de l'header
+include 'header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

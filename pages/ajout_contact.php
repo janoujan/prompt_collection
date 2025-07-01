@@ -1,10 +1,8 @@
 <?php
 // Détection de l'environnement (local ou InfinityFree)
-if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
-    include 'config_local.php';
-} else {
-    include 'config_infinity.php';
-}
+require_once __DIR__ . '/../includes/db_connect.php';
+//affichage de l'header
+include 'header.php';
 ?>
 
 <!DOCTYPE html>

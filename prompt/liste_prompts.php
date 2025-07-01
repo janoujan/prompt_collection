@@ -1,10 +1,6 @@
 <?php
 // Détection de l'environnement (local ou InfinityFree)
-if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
-    include 'config_local.php';
-} else {
-    include 'config_infinity.php';
-}
+require_once __DIR__ . '/../includes/db_connect.php';
 
 // Récupération du mot-clé de recherche
 $keyword = isset($_GET['keyword']) ? trim($_GET['keyword']) : '';
@@ -127,6 +123,30 @@ $auteurs_result = mysqli_query($conn, $auteurs_sql);
     </div>
 
     <p><a href="ajout_prompt.php">Ajouter un nouveau prompt</a></p>
+<!-- Script à la fin du fichier, qui écoute les clics sur les étoiles -->
+    <script>
+        document.querySelectorAll('.toggle-favori').forEach(elem => {
+            elem.addEventListener('click', () => {
+                const id = elem.dataset.id;
+                fetch('../helper/toggle_favori_ajax.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `id=${id}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        elem.textContent = data.favori ? '⭐' : '☆';
+                    } else {
+                        alert("Erreur : " + data.error);
+                    }
+                })
+                .catch(() => alert("Erreur de communication avec le serveur"));
+            });
+        });
+    </script>
 </body>
 </html>
 <?php

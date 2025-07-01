@@ -1,10 +1,6 @@
 <?php
 // Détection de l'environnement (local ou InfinityFree)
-if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
-    include 'config_local.php';
-} else {
-    include 'config_infinity.php';
-}
+require_once __DIR__ . '/../includes/db_connect.php';
 
 // Récupération de l'ID du prompt à modifier
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;

@@ -1,14 +1,11 @@
  <?php
  // Détection de l’environnement (local ou InfinityFree)
- if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
-    include 'config_local.php';
- } else {
-    include 'config_infinity.php';
- }
+ require_once __DIR__ . '/../includes/db_connect.php';
+ 
  // Sécurisation des données reçues via POST
  $prenom = htmlspecialchars($_POST['prenom'] ?? '');
  $nom = htmlspecialchars($_POST['nom'] ?? '');
-$email = htmlspecialchars($_POST['email'] ?? '');
+ $email = htmlspecialchars($_POST['email'] ?? '');
  $message = htmlspecialchars($_POST['message'] ?? '');
  // Vérifie que les champs obligatoires ne sont pas vides
  if ($prenom && $nom && $email) {

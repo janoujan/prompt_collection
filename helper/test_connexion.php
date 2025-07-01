@@ -1,6 +1,6 @@
 <?php
  // On inclut le fichier config_local.php qui contient la connexion à la base
- include 'config_local.php';
+ include '../config/config_local.php';
  // Si l'inclusion s'est bien passée, la variable $conn est déjà disponible
  if ($conn) {
  echo "Connexion réussie à la base de données locale !";

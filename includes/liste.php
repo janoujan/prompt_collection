@@ -1,10 +1,7 @@
 <?php
- // Détection de l’environnement
- if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
- include 'config_local.php';
- } else {
- include 'config_infinity.php';
- }
+// Détection de l’environnement
+require_once __DIR__ . '/../includes/db_connect.php';
+
  // Requête pour récupérer les contacts
  $sql = "SELECT * FROM contacts ORDER BY date_creation DESC";
  $result = mysqli_query($conn, $sql);

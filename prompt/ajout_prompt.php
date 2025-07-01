@@ -1,11 +1,6 @@
 <?php
 // Détection de l'environnement (local ou InfinityFree)
-if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
-    include '../includes/config_local.php';
-} else {
-    include '../includes/config_infinity.php';
-}
-
+require_once __DIR__ . '/../includes/db_connect.php';
 // Récupération des types
 $types = mysqli_query($conn, "SELECT id, nom FROM types");
 // Récupération des outils
