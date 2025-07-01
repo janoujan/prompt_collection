@@ -1,9 +1,9 @@
 <?php
 // Détection de l'environnement (local ou InfinityFree)
 if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
-    include 'config_local.php';
+    include '../includes/config_local.php';
 } else {
-    include 'config_infinity.php';
+    include '../includes/config_infinity.php';
 }
 
 // Récupération des types
@@ -17,16 +17,16 @@ $outils = mysqli_query($conn, "SELECT id, nom FROM outils");
 <head>
     <meta charset="UTF-8">
     <title>Ajouter un prompt</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php include '../includes/header.php'; ?>
     <h1>Ajouter un nouveau prompt</h1>
-    <form action="traitement_prompt.php" method="POST">
+    <form action="../php/traitement_prompt.php" method="POST">
         <label for="titre">Titre :</label><br>
-        <input type="text" id="titre" name="titre" required maxlength="100"><br><br>
+        <input type="text" id="titre" name="titre" maxlength="100" required><br><br>
         <label for="contenu">Contenu :</label><br>
-        <textarea id="contenu" name="contenu" rows="6" required maxlength="1000"></textarea><br><br>
+        <textarea id="contenu" name="contenu" maxlength="1000" rows="6" required></textarea><br><br>
         <label for="type">Type :</label><br>
         <select id="type" name="id_type" required>
             <?php while ($type = mysqli_fetch_assoc($types)): ?>
@@ -41,9 +41,9 @@ $outils = mysqli_query($conn, "SELECT id, nom FROM outils");
             <?php endwhile; ?>
         </select><br><br>
         <label for="observation">Observation (facultatif) :</label><br>
-        <textarea id="observation" name="observation" rows="3" maxlength="500"></textarea><br><br>
+        <textarea id="observation" name="observation" maxlength="500" rows="3"></textarea><br><br>
         <label for="auteur">Auteur :</label><br>
-        <input type="text" id="auteur" name="auteur" value="anonyme" maxlength="50"><br><br>
+        <input type="text" id="auteur" name="auteur" maxlength="50" value="anonyme"><br><br>
         <label>
             <input type="checkbox" name="favori" value="1"> Marquer comme favori
         </label><br><br>

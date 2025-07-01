@@ -1,8 +1,9 @@
 <?php
+// Détection de l'environnement (local ou InfinityFree)
 if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
-  include 'config_local.php';
+    include '../includes/config_local.php';
 } else {
-  include 'config_infinity.php';
+    include '../includes/config_infinity.php';
 }
 
 $titre = htmlspecialchars(trim($_POST['titre'] ?? ''));
@@ -25,8 +26,8 @@ if ($titre && $contenu && $id_type) {
   // Exécution
   if (mysqli_stmt_execute($stmt)) {
     echo '<div class="confirmation">✅ Le prompt a bien été enregistré.</div>';
-    echo '<a href="ajout_prompt.php">Ajouter un autre</a> | ';
-    echo '<a href="liste_prompts.php">Voir les prompts</a>';
+    echo '<a href="../pages/ajout_prompt.php">Ajouter un autre</a> | ';
+    echo '<a href="../pages/liste_prompts.php">Voir les prompts</a>';
   } else {
     echo "❌ Erreur : " . mysqli_stmt_error($stmt);
   }
