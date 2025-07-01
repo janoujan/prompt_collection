@@ -1,10 +1,7 @@
 <?php
-// Définir le chemin de base du projet
-define('ROOT_PATH', dirname(__DIR__));
+// Détection du serveur
+$isLocalhost = strpos($_SERVER['HTTP_HOST'], 'localhost') !== false;
 
-// Définir l'URL de base pour les liens
-$base_url = dirname($_SERVER['SCRIPT_NAME'], 2);
-
-require_once ROOT_PATH . '/includes/header.php';
-?>
+// BASE_URL dépend de l’environnement
+define('BASE_URL', $isLocalhost ? '/prompt_collection' : '');
 

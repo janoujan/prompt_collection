@@ -6,8 +6,6 @@ require_once __DIR__ . '/../includes/db_connect.php';
 $sql = "SELECT * FROM contacts ORDER BY date_creation DESC";
 $result = mysqli_query($conn, $sql);
 
-//affichage de l'header
-include 'header.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,10 +13,10 @@ include 'header.php';
 <head>
     <meta charset="UTF-8">
     <title>Liste des Contacts</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php include '../includes/header.php'; ?>
     <h1>Liste des Contacts</h1>
     <table>
         <thead>
@@ -49,7 +47,7 @@ include 'header.php';
         </tbody>
     </table>
     <p><a href="ajout_contact.php">Ajouter un nouveau contact</a></p>
-<?php include 'footer.php'; ?>
+<?php include '../includes/footer.php'; ?>
 </body>
 </html>
 <?php

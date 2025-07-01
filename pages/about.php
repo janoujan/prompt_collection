@@ -2,7 +2,7 @@
 // Détection de l'environnement (local ou InfinityFree)
 require_once __DIR__ . '/../includes/db_connect.php';
 //affichage de l'header
-include 'header.php';
+include '../includes/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ include 'header.php';
 <head>
   <meta charset="UTF-8">
   <title>À propos</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
@@ -28,6 +28,6 @@ include 'header.php';
 <p>Projet réalisé par : <strong>Janou</strong></p>
 <p>Contact : <a href="mailto:janou@janou.pro">janou@janou.pro</a></p>
 
-<?php include 'footer.php'; ?>
+<?php include '../includes/footer.php'; ?>
 </body>
 </html>

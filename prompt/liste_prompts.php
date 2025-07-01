@@ -49,11 +49,11 @@ $auteurs_result = mysqli_query($conn, $auteurs_sql);
 <head>
     <meta charset="UTF-8">
     <title>Liste des Prompts</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
-    <?php include 'header.php'; ?>
+    <?php include '../includes/header.php'; ?>
     <h1>Liste des Prompts enregistrés</h1>
     <form method="GET" action="liste_prompts.php">
         <label for="keyword">Rechercher :</label>
@@ -86,7 +86,7 @@ $auteurs_result = mysqli_query($conn, $auteurs_sql);
                 <?php while ($row = mysqli_fetch_assoc($result)): ?>
                     <tr>
                         <td><?= htmlspecialchars($row['titre']) ?></td>
-                        <td><?= nl2br(htmlspecialchars($row['contenu'])) ?></td>
+                        <td><?= nl2br($row['contenu']) ?></td>
                         <td><?= htmlspecialchars($row['type_nom']) ?></td>
                         <td><?= htmlspecialchars($row['outil_nom'] ?? '-') ?></td>
                         <td><?= htmlspecialchars($row['observation'] ?? '') ?></td>
