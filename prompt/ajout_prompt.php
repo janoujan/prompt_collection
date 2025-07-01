@@ -44,7 +44,7 @@ $outils = mysqli_query($conn, "SELECT id, nom FROM outils");
         </label><br><br>
         <button type="submit">Enregistrer le prompt</button>
     </form>
-    <?php include 'includes/footer.php'; ?>
+    <?php include '../includes/footer.php'; ?>
 </body>
 </html>
 <?php

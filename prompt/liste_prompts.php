@@ -164,7 +164,7 @@ $auteurs_result = mysqli_query($conn, $auteurs_sql);
             });
         });
     </script>
-    <?php include 'includes/footer.php'; ?>
+    <?php include '../includes/footer.php'; ?>
 </body>
 </html>
 <?php
