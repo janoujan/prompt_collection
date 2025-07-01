@@ -66,6 +66,7 @@ if ($id > 0) {
     <?php else: ?>
         <p>Prompt non trouvé.</p>
     <?php endif; ?>
+    <?php include 'includes/footer.php'; ?>
 </body>
 </html>
 <?php
